@@ -3063,7 +3063,6 @@ void ExtObj08_Hole(uint8 k) {
   uint8 xpos;  // al
   uint8 v4;    // si
 
-  uint8 was_unk = sign8(area_object_length[k]);
   v1 = ChkLrgObjLength(k);
   if ((v1 & 0x100) && !area_type) {
     v2 = cannon_offset;
@@ -4679,7 +4678,7 @@ void BumpBlock() {
   if (v1 != 0xff) {
     v2 = v1;
     if (v1 >= 9u)
-      v2 = v1 - ((v1 < 9u) + 5);
+      v2 = v1 - 5;
     R4_ = *((uint8 *)kDATA_03BF64 + (uint8)(2 * v2));
     R5_ = *((uint8 *)kDATA_03BF64 + (uint8)(2 * v2) + 1);
     switch ((uint8)(2 * v2) >> 1) {
@@ -5949,7 +5948,7 @@ void EnemyMovementSubs(uint8 k) {
   v1 = enemy_id[k];
   R4_ = kDATA_03CD48[v1];
   R5_ = HIBYTE(kDATA_03CD48[v1]);
-  ((void (*)(uint8))funcs_BDE8[(unsigned int)(v1 * 2) >> 1])(k);
+  funcs_BDE8[(unsigned int)(v1 * 2) >> 1](k);
 }
 // BDF0: using guessed type int (*funcs_BDE8[21])();
 
@@ -7803,7 +7802,7 @@ void ReverseXSpeed(uint8 k) {
 void LargePlatformCollision(uint8 k) {
   enemy_data_d[k] = -1;
   if (timer_control || (enemy_state[k] & 0x80u) != 0) {
-    DoReturn();
+    
   } else {
     if (enemy_id[k] == 36) {
       ChkForPlayerC_LargeP(enemy_state[k]);
@@ -7821,12 +7820,8 @@ void ChkForPlayerC_LargeP(uint8 k) {
     if (PlayerCollisionCore(EnemyBoundBoxOfsArg) & 1)
       ProcLPlatCollisions(k, EnemyBoundBoxOfsArg);
   }
-  DoReturn();
 }
 
-void DoReturn() {
-  ;
-}
 
 void SmallPlatformCollision(uint8 k) {
   uint8 EnemyBoundBoxOfs;  // di
