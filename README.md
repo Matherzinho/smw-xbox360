@@ -67,3 +67,10 @@ Additionally, the following commands are available:
 | Alt+Enter | Toggle Fullscreen     |
 | Shift+F1-F10 | Save snapshot |
 | Ctrl+F1-F10 | Replay the snapshot |
+
+
+## Xbox 360 Xenon port
+
+This repository includes a community Xenon frontend in `xbox360/`, based on upstream commit `eae20c65c58930c8b62c76188d259579ad4130f1`. It uses XSDK GPU/presentation and Xam controller APIs separately from the SDL2/OpenGL desktop frontend. This port is not affiliated with Nintendo or Microsoft.
+
+See [BUILDING_XBOX360.md](BUILDING_XBOX360.md) for reproducible build and legal asset extraction steps, and [PORT_STATUS.md](PORT_STATUS.md) for controls and known limitations. Keep ROMs, extracted assets, and build output out of Git. The optional upstream compressed SMB1/SMBLL ROM payloads are excluded from the sanitized publication history; they are not required for the SMW target.

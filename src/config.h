@@ -1,6 +1,11 @@
 #pragma once
 #include "types.h"
+#if defined(SMW_XENON)
+typedef int SDL_Keycode;
+typedef int SDL_Keymod;
+#else
 #include <SDL_keycode.h>
+#endif
 
 enum {
   kKeys_Null,

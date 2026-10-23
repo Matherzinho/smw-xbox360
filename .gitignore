@@ -16,3 +16,16 @@ smw_assets.dat
 __pycache__
 /enhanced/
 *.sfc
+/xbox360/build/
+/other/smb1.zst
+/other/smbll.zst
+
+# Local ROMs, extracted assets and Xenon build outputs
+*.smc
+*.xex
+*.elf
+*.a
+*.log
+*.pyc
+__pycache__/
+.venv/
